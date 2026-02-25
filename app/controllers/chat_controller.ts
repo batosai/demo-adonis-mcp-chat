@@ -6,7 +6,7 @@ import env from '#start/env'
 // import User from '#models/user'
 
 export default class ChatController {
-  async handle({ request, response, auth }: HttpContext) {
+  async handle({ request }: HttpContext) {
     // const token = await User.accessTokens.create(auth.user!, ['*'], {
     //   name: 'Chat Token For MCP',
     //   expiresIn: '1 hour',
@@ -35,10 +35,6 @@ export default class ChatController {
       // },
     })
 
-    result.pipeUIMessageStreamToResponse(response.response)
-
-    return new Promise((resolve) => {
-      response.response.on('close', resolve)
-    })
+    return result.toUIMessageStreamResponse()
   }
 }
