@@ -27,5 +27,5 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   AI_API_KEY: Env.schema.string(),
 
-  AI_MODEL: Env.schema.string()
+  AI_MODEL: Env.schema.string(),
 })
